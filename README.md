@@ -89,3 +89,40 @@ db.Books.deleteOne({ title: "Title of the Book" })
 To delete an Author type the following command on CMD  :
 
 db.Authors.deleteOne({ _id: 3 })
+
+
+
+
+To find Books published after 1950 type the following command on CMD  :
+
+db.Books.find({ published_year: { $gt: 1950 } })
+
+
+
+To find All American Authors type the following command on CMD  :
+
+db.Authors.find({ nationality: { $eq: "American" } })
+
+
+
+To set All Books To available type the following command on CMD  :
+
+db.Books.updateMany({}, { $set: { availability: "available" } })
+
+
+
+To find All Books that are available and published after 1950 type the following command on CMD  :
+
+db.Books.find({ availability: "available", published_year: { $gt: 1950 } })
+
+
+
+To find Authors whose names contain "George" type the following command on CMD  :
+
+db.Authors.find({ name: { $regex: "George", $options: "i" } })
+
+
+
+To give the published year of "1869" an increment by 1 type the following command on CMD  :
+
+db.Books.updateMany({ published_year: 1869 }, { $inc: { published_year: 1 } })
